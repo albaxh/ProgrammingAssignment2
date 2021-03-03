@@ -19,8 +19,19 @@ makeCacheMatrix <- function(m = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function takes as argument a matrix x and a cache and returns the 
+## inverted matrix for x, assuming that x is a square invertable matrix. First
+## it looks up the inverted matrix value in the cache and if not found
+## calculates the inverted value and sets it in the cache.
 
-cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+cacheSolve <- function(x, cache, ...) {
+    m <- cache$getInvertedMatrix()
+    if(!is.null(m)) {
+        message("getting cached data")
+        return(m)
+    }
+    data <- x
+    m <- solve(x, ...)
+    cache$setInvertedMatrix(m)
+    m
 }
