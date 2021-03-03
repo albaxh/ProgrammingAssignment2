@@ -1,7 +1,8 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## This function takes as argument a matrix and returns a vector that serves as
+## a cache for the matrix and its inverted respective
 
 makeCacheMatrix <- function(m = matrix()) {
     invertedM <- NULL
